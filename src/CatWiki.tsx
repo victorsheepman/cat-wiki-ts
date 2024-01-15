@@ -1,18 +1,15 @@
 import { useEffect } from 'react'
-import { useStore } from './store'
-import { fetchApi } from './api';
+import { useStore, fetchApi } from './store'
+import { Layout } from './container/Layout';
 
 export const CatWiki = () => {   
-    const {dispatch, state} = useStore()
+    const {dispatch} = useStore()
     useEffect(() => {
         dispatch(fetchApi());
       }, [dispatch]);
 
     
   return (
-    <div>
-        {state.breeds.map(breed=><h1>{breed.id}</h1>)}
-        {<h1>{state.status}</h1>}
-    </div>
+    <Layout/>
   )
 }
