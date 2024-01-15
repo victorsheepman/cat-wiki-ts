@@ -21,7 +21,6 @@ const headerWrapper = style(
         width:'100%',
         height:'80px',
         padding:"24px 18px",
-        backgroundColor:'red'
     }, 
     media(
         {minWidth:1366},
