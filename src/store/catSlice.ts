@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-//import type { PayloadAction } from '@reduxjs/toolkit'
 import { Breed, StatusType } from '../schemas'
-import { fetchApi } from '../api/service'
+import { fetchApi } from './thunks'
 import type { RootState } from './store'
 
 interface CatState {
@@ -37,6 +36,7 @@ export const catSlice = createSlice({
         // Handle rejected state if needed
         state.status = StatusType.ERROR;
       });
+
   },
 })
 
