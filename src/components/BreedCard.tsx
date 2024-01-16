@@ -2,13 +2,22 @@ import { url } from 'csx';
 import React, { useEffect, useState } from 'react'
 import { classes, media, style } from 'typestyle'
 import { colorBrown } from '../theme';
+import { useNavigate } from 'react-router-dom';
 
 interface breedCardProps {
-    title:string,
+    id:     string;
+    title:  string,
     imgUrl: string
 }
-export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl}) => {
+export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl, id}) => {
     const [img, setImg] = useState<string>('')
+    const navigate = useNavigate();
+
+    // Función para navegar a una ruta específica con un ID
+    const goToDetail = () => {
+      navigate(`/detail/${id}`);
+    };
+  
     useEffect(() => {
         const callImagesById = async (id:string) => {
             try {
@@ -23,7 +32,7 @@ export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl}) => {
     }, [])
     
   return (
-    <div>
+    <div onClick={goToDetail}>
         <figure className={classes(breedCardFigure, img ? setImageStyle(img) : null)}></figure>
         <h4 className={breedTitle}>{title}</h4>
     </div>

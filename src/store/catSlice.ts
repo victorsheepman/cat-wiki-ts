@@ -19,7 +19,7 @@ export const catSlice = createSlice({
   name: 'cat',
   initialState,
   reducers: {
-   
+
   },
   extraReducers: (builder) => {
     builder

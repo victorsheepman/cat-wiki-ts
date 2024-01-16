@@ -6,6 +6,7 @@ export const colorBlack = color("#000")
 export const colorBrown = color("#291507")
 export const colorBeige = color("#E3E1DC")
 export const colorWhite = color("#FFF")
+export const colorGray  = color("#E0E0E0")
 
 //FONTS
 export const montserrat = 'Montserrat'

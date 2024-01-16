@@ -10,7 +10,7 @@ export const BreedList = () => {
     const breedList = useMemo(() => state.breeds.slice(0,4), [state.breeds])
   return (
     <div className={breedListWrapper}>
-        {breedList.map(breed=><BreedCard title={breed.name} imgUrl={breed.reference_image_id} />)}
+        {breedList.map((breed, index) =><BreedCard key={index} id={breed.id} title={breed.name} imgUrl={breed.reference_image_id} />)}
     </div>
   )
 }
