@@ -13,17 +13,3 @@ export const fetchApi = createAsyncThunk('cat/fetchApi', async () => {
       throw new Error(`Error: ${error}`);
     }
 });
-
-export const callImagesById = createAsyncThunk(
-    'cat/callImagesById',
-    async (id: string) => {
-      try {
-        const res = await fetch(`https://api.thecatapi.com/v1/images/${id}`)
-        const json = await res.json();
-        return json;
-      } catch (error) {
-        throw new Error(`Error: ${error}`);
-      }
-    }
-  );
-  

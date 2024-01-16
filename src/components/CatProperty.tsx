@@ -4,7 +4,7 @@ import { colorBlack, colorBrown, colorGray, montserrat } from '../theme'
 import { useEffect, useState } from 'react'
 
 interface CatPropertyProps {
-    quantity:number,
+    quantity:number | undefined,
     title:string
 }
 
@@ -16,17 +16,19 @@ export const CatProperty:React.FC<CatPropertyProps> = ({title, quantity}) => {
         {color:colorGray}, 
         {color:colorGray}
     ])
-    
+
+    const barmapper = (quantity:number)=> bars.map((bar, index) => {
+        if (index <= quantity) {
+          return { color: colorBrown }; 
+        } else {
+          return bar;
+        }
+    })
     useEffect(() => {
-      setBars(
-        bars.map((bar, index) => {
-            if (index <= quantity) {
-              return { color: colorBrown }; 
-            } else {
-              return bar;
-            }
-        })
-      )
+        if (quantity) {
+            setBars( barmapper(quantity) )
+        }
+      
     }, [quantity])
     return (
     <div className={propertyWrapper}>

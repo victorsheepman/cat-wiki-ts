@@ -1,8 +1,9 @@
 import { url } from 'csx';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { classes, media, style } from 'typestyle'
 import { colorBrown } from '../theme';
 import { useNavigate } from 'react-router-dom';
+import { useGetImage } from '../hooks';
 
 interface breedCardProps {
     id:     string;
@@ -10,7 +11,8 @@ interface breedCardProps {
     imgUrl: string
 }
 export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl, id}) => {
-    const [img, setImg] = useState<string>('')
+
+    const {img} = useGetImage(imgUrl)
     const navigate = useNavigate();
 
     // Función para navegar a una ruta específica con un ID
@@ -18,19 +20,7 @@ export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl, id}) => {
       navigate(`/detail/${id}`);
     };
   
-    useEffect(() => {
-        const callImagesById = async (id:string) => {
-            try {
-                const res = await fetch(`https://api.thecatapi.com/v1/images/${id}`)
-                const json = await res.json();
-                setImg(json.url)
-            } catch (error) {
-                console.log(error);
-            }   
-        }
-        callImagesById(imgUrl)
-    }, [])
-    
+  
   return (
     <div onClick={goToDetail}>
         <figure className={classes(breedCardFigure, img ? setImageStyle(img) : null)}></figure>

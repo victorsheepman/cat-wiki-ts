@@ -5,10 +5,12 @@ import { useStore } from '../store';
 import { classes, media, style } from 'typestyle';
 import { colorBlack, colorBrown, theme } from '../theme';
 import { CatProperty } from '../components/CatProperty';
+import { useGetImage } from '../hooks';
 
 
 export const CatDetail = () => {
     const [breed, setBreed] = useState<Breed>()
+    const {img} = useGetImage(breed?.reference_image_id)
     const {state} = useStore()
     const { id } = useParams()
     useEffect(() => {
@@ -21,7 +23,9 @@ export const CatDetail = () => {
   return (
     <div className={detailWrapper}>
         <section className={detailSection}>
-            <figure className={detailFigure}></figure>
+            <figure className={detailFigure}>
+                <img className={style({width:'100%', height:'100%', objectFit:'cover', borderRadius: '12px'})} src={img} alt="image cat" />
+            </figure>
         </section>
         <section className={detailSection}>
             <h2 className={detailTitle}>
