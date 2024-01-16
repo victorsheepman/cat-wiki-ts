@@ -1,6 +1,6 @@
 import { classes, media, style } from "typestyle"
 import { Hero } from "../container/Hero"
-import { colorBrown } from "../theme"
+import { colorBrown, theme } from "../theme"
 
 export const Home = () => {
   return (
@@ -15,7 +15,7 @@ export const Home = () => {
                     </h3>
                 </div>
                 <div className={paragrafWrapper}>
-                    <p className={homeParagraph}>
+                    <p className={classes(theme.paragraph, style({fontWeight:500}))}>
                         Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety leves
                     </p>
                 </div>
@@ -100,15 +100,6 @@ const paragrafWrapper = style(
         }
     )
 )
-
-const homeParagraph = style({
-    color:colorBrown.toString(),
-    fontFamily: 'Montserrat',
-    fontSize: '18px',
-    fontStyle: 'normal',
-    fontWeight: 500,
-    lineHeight: 'normal',
-})
 
 const homeGallery = style(
     {

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
-import { media, style } from 'typestyle'
+import { classes, media, style } from 'typestyle'
+import { colorBlack, colorWhite, montserrat } from '../theme'
 
 export const Layout = ({children}:{children:ReactNode}) => {
   return (
@@ -12,6 +13,19 @@ export const Layout = ({children}:{children:ReactNode}) => {
         <main className={mainWrapper}>
         {children}
         </main>
+        <footer className={layoutFooter}>
+             <p className={symbolStyle}>©</p><p className={layoutFooterParagraph}>
+                created by <strong 
+                                className={
+                                    classes(
+                                        layoutFooterParagraph, 
+                                        style({fontWeight:700, textDecorationLine:'underline'})
+                                    )
+                                }
+                            >
+                               Victor Marquez
+                            </strong>  - devChallenge.io 2024</p>
+        </footer>
     </div>
   )
 }
@@ -49,3 +63,32 @@ const mainWrapper = style(
         }
     )
 )
+const layoutFooter = style({
+    width: '100%',
+    height: '122.089px',
+    flexShrink: 0,
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor: colorBlack.toString(),
+    borderRadius:'40px 40px 0px 0px',
+    
+})
+
+const layoutFooterParagraph = style({
+    color: colorWhite.toString(),
+    fontFamily: 'Montserrat',
+    fontSize: '12px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: 'normal'
+})
+
+const symbolStyle = style({
+    color: colorWhite.toString(),
+    fontFamily: montserrat,
+    fontSize: '24px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: 'normal'
+})
