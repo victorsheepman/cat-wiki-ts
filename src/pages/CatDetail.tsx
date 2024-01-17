@@ -6,10 +6,12 @@ import { classes, media, style } from 'typestyle';
 import { colorBlack, colorBrown, theme } from '../theme';
 import { CatProperty } from '../components/CatProperty';
 import { useGetImage } from '../hooks';
+import { callImagesByBreed } from '../api';
 
 
 export const CatDetail = () => {
     const [breed, setBreed] = useState<Breed>()
+    const [images, setImages] = useState<string[] | undefined>([])
     const {img} = useGetImage(breed?.reference_image_id)
     const {state} = useStore()
     const { id } = useParams()
@@ -18,9 +20,18 @@ export const CatDetail = () => {
         if (breedSelected) {
             setBreed(breedSelected)
         }
-    }, [])
+    }, [id, state.breeds])
+    
+    useEffect(() => {
+
+        if (breed) {
+            callImagesByBreed(breed.id, setImages)
+        }
+
+    }, [breed?.id])
     
   return (
+    <>
     <div className={detailWrapper}>
         <section className={detailSection}>
             <figure className={detailFigure}>
@@ -65,6 +76,22 @@ export const CatDetail = () => {
             <CatProperty title='Stranger friendly:' quantity={breed?.stranger_friendly ?? 0} />
         </section>
     </div>
+    <section className={detailsGallery}>
+            <h3 className={detailSubTitle}>
+                Other photos
+            </h3>
+            <div className={detailsGrid}>
+                {
+                    images !== undefined ? 
+                    images.map((image)=>(
+                        <figure className={style({width: '278px', height: '278px', flexShrink: 0})}>
+                            <img className={style({width:'100%', height:'100%', objectFit:'cover', borderRadius: '12px'})} src={image} alt="image cat" />
+                        </figure>
+                    )):null
+                }
+            </div>
+        </section>
+    </>
   )
 }
 
@@ -143,4 +170,32 @@ const detailSubTitle = style(
         fontWeight: 700,
         lineHeight: 'normal'
     }
+)
+
+const detailsGallery = style({
+    width:'100%',
+    height:"auto",
+    marginTop:'80px',
+    marginBottom:'176px'
+})
+
+const detailsGrid = style(
+    {
+        width:'100%',
+        marginTop:'40px',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        gap:'30px'
+    },
+    media(
+        {minWidth:1366},
+        {
+            flexWrap:'wrap',
+            flexDirection:'row',
+            alignItems:'unset',
+            gap:'46px'
+        }
+    )
 )

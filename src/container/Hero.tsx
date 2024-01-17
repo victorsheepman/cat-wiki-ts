@@ -2,6 +2,7 @@ import { classes, media, style } from 'typestyle'
 import { colorBeige, colorBlack, colorBrown, colorWhite, montserrat } from '../theme'
 import { url } from 'csx'
 import { BreedList } from './BreedList'
+import { Link } from 'react-router-dom'
 
 export const Hero = () => {
   return (
@@ -24,6 +25,11 @@ export const Hero = () => {
                 <h3 className={heroBottomTitle}>
                     66+ Breeds For you to discover
                 </h3>
+                <Link className={style({textDecoration:'none'})} to="/more">
+                    <span className={heroSpan}>
+                        SEE MORE
+                    </span>
+                </Link>
             </div>
             <BreedList />
         </section>
@@ -198,3 +204,14 @@ const heroBottomTitle = style(
         }
     )
 )
+
+const heroSpan = style({
+    color: 'rgba(41, 21, 7, 0.60)',
+    textAlign: 'right',
+    fontFamily: 'Montserrat',
+    fontSize: '18px',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: 'normal',
+    textDecoration:'none'
+})
