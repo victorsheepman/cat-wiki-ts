@@ -137,7 +137,7 @@ const detailFigure = style(
         backgroundColor:'red'
     },
     media(
-        {minWidth:1366},
+        {minWidth:600},
         {
             width: '371.045px',
             height: '371.045px',
@@ -185,16 +185,15 @@ const detailsGrid = style(
         marginTop:'40px',
         display:'flex',
         flexDirection:'column',
-        justifyContent:'center',
         alignItems:'center',
         gap:'30px'
     },
     media(
-        {minWidth:1366},
+        {minWidth:600},
         {
             flexWrap:'wrap',
             flexDirection:'row',
-            alignItems:'unset',
+            justifyContent:'center',
             gap:'46px'
         }
     )

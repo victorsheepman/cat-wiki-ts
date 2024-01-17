@@ -56,14 +56,21 @@ const breedArticleFigure = style({
     borderRadius: '24px'
 })
 
-const breedArticleTitle = style({
-    color: colorBrown.toString(),
-    fontFamily: montserrat,
-    fontSize: '36px',
-    fontStyle: 'normal',
-    fontWeight: 600,
-    lineHeight: 'normal',
-})
+const breedArticleTitle = style(
+    {
+        color: colorBrown.toString(),
+        fontFamily: montserrat,
+        fontSize: '26px',
+        fontStyle: 'normal',
+        fontWeight: 600,
+        lineHeight: 'normal',
+    },
+    media(
+        {minWidth:600},{
+            fontSize: '36px',
+        }
+    )
+)
 
 const breedArticleText = style({
     color: colorBrown.toString(),
