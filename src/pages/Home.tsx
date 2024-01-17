@@ -1,5 +1,5 @@
 import { classes, media, style } from "typestyle"
-import { Hero } from "../container/Hero"
+import { Hero } from "../container"
 import { colorBrown, theme } from "../theme"
 
 export const Home = () => {

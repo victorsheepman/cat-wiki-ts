@@ -1,6 +1,6 @@
 import { style } from 'typestyle'
 import { colorBrown, montserrat } from '../theme'
-import { BreedArticle } from '../components/BreedArticle'
+import { BreedArticle } from '../components'
 import { useStore } from '../store'
 
 export const MoreBreeds = () => {

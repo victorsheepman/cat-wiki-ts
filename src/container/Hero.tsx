@@ -126,11 +126,11 @@ const heroInput = style(
 )
 const heroInputText = style({
     color: colorBlack.toString(),
-  fontFamily: 'Montserrat',
-  fontSize: '12px',
-  fontStyle: 'normal',
-  fontWeight: 500,
-  lineHeight: 'normal',
+    fontFamily: montserrat,
+    fontSize: '12px',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: 'normal',
 })
 
 const heroLabel = style({
@@ -163,7 +163,7 @@ const heroWrapperBottom = style(
 const heroBottomSpan = style(
     {
         color: colorBrown.toString(),
-        fontFamily: 'Montserrat',
+        fontFamily: montserrat,
         fontSize: '12px',
         fontStyle: 'normal',
         fontWeight: 500,
@@ -191,7 +191,7 @@ const heroBottomLine = style(
 const heroBottomTitle = style(
     {
         color: colorBrown.toString(),
-        fontFamily: 'Montserrat',
+        fontFamily: montserrat,
         fontSize: '18px',
         fontStyle: 'normal',
         fontWeight: 700,
@@ -208,7 +208,7 @@ const heroBottomTitle = style(
 const heroSpan = style({
     color: 'rgba(41, 21, 7, 0.60)',
     textAlign: 'right',
-    fontFamily: 'Montserrat',
+    fontFamily: montserrat,
     fontSize: '18px',
     fontStyle: 'normal',
     fontWeight: 700,

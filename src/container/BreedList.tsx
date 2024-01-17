@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 
 import { media, style } from 'typestyle'
 import { useStore } from '../store';
-import { BreedCard } from '../components/BreedCard';
+import { BreedCard } from '../components';
 
 export const BreedList = () => {
     const {state} = useStore()

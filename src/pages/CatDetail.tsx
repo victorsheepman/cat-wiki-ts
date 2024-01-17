@@ -4,7 +4,7 @@ import { Breed } from '../schemas';
 import { useStore } from '../store';
 import { classes, media, style } from 'typestyle';
 import { colorBlack, colorBrown, theme } from '../theme';
-import { CatProperty } from '../components/CatProperty';
+import { CatProperty } from '../components';
 import { useGetImage } from '../hooks';
 import { callImagesByBreed } from '../api';
 

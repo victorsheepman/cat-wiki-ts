@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { callImagesById } from '../api/service'
+import { callImagesById } from '../api'
 
 export const useGetImage = (imgUrl:string | undefined) => {
     const [img, setImg] = useState<string | undefined>(undefined)
