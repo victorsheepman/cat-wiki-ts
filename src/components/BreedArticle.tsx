@@ -15,7 +15,7 @@ interface BreedArticleProps {
 export const BreedArticle:React.FC<BreedArticleProps> = ({title, desc, imgId, index, breed}) => {
     const {img} = useGetImage(imgId)
     const navigate = useNavigate();
-    // Función para navegar a una ruta específica con un ID
+    
     const goToDetail = () => {
       navigate(`/detail/${breed}`);
     };
