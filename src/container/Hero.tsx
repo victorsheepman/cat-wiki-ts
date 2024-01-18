@@ -98,7 +98,7 @@ const heroWrapperTop = style(
         height: '146.19px',
         flexShrink: 0,
         padding:'21px 29px',
-        backgroundImage:url('public/HeroImagesm.png'),
+        backgroundImage:url('/public/HeroImagesm.png'),
         backgroundPosition: 'center',  
         backgroundSize: 'cover',  
         borderRadius: '42px 42px 0px 0px',
@@ -115,7 +115,7 @@ const heroWrapperTop = style(
     media(
         {minWidth:1366},
         {
-            backgroundImage: url('/public/HeroImagelg.png'),
+            backgroundImage: url('HeroImagelg.png'),
             height:'538px'
         }
     )
