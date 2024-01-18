@@ -75,6 +75,14 @@ function App() {
 }
 ```
 
+## 5. Funciones
+- Buscar razas de gatos y seleccionar una raza de mi elección
+- Ver el resumen de las razas de gatos más populares buscadas en la página de inicio
+- Ver las 10 razas de gatos más buscadas
+- Ver los detalles de la raza, incluida la descripción, el temperamento, el origen, la esperanza de vida, la adaptabilidad, el nivel de afecto, la idoneidad para los niños, el aseo, la inteligencia, los problemas de salud, las necesidades sociales y la amistad con los extraños.
+- Ver más fotos de la raza.
+
+
 ## 6. Cómo Ejecutar la Aplicación
 Iniciar el Servidor:
 
@@ -83,3 +91,4 @@ cd Cat-wiki-ts
 npm install
 npm run dev
 ```
+
