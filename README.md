@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Documentación de la Aplicación CatWiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CatWiki es una aplicación web que permite a los usuarios explorar y aprender sobre diferentes razas de gatos. La aplicación utiliza TheCatAPI para obtener información sobre las razas de gatos. A continuación, se presenta una actualización de la documentación que incorpora el uso de Vite en lugar de Create React App (CRA).
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Estructura del Proyecto](#estructura-del-proyecto)
+2. [API del Lado del Servidor](#api-del-lado-del-servidor)
+3. [Componentes de React](#componentes-de-react)
+4. [Llamadas a la API en React y Redux](#llamadas-a-la-api-en-react-y-redux)
+5. [Enrutamiento](#enrutamiento)
+6. [Cómo Ejecutar la Aplicación](#cómo-ejecutar-la-aplicación)
 
-## Expanding the ESLint configuration
+## 1. Estructura del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `src/api`: Servicios utilizados para hacer llamadas adicionales a la API.
+- `src/components`: Contiene componentes React.
+- `src/App.jsx`: Componente principal de la aplicación.
+- `src/CatWiki.jsx`: Componente donde se encuentran las rutas.
+- `src/store`: Almacenamiento Redux, con slices para gestionar el estado de la aplicación, thunks con las llamadas a la API y los hooks que se usan del reducer.
+- `catwiki-server`: Servidor Node.js.
+  - `server.js`: Lógica del lado del servidor y rutas de la API.
 
-- Configure the top-level `parserOptions` property like this:
+## 2. API del Lado del Servidor
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+El servidor está construido con Node.js y Express. Proporciona puntos finales de API para obtener razas de gatos y otra información relevante.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Puntos Finales:
+
+1. **GET `/api/breeds`**
+   - Obtiene una lista de razas de gatos.
+
+   Ejemplo de Respuesta:
+   ```json
+   [
+     { "id": "abys", "name": "Abisinio", ... },
+     { "id": "beng", "name": "Bengala", ... },
+     // ...
+   ]
