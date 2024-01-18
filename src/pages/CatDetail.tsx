@@ -15,6 +15,7 @@ export const CatDetail = () => {
     const {img} = useGetImage(breed?.reference_image_id)
     const {state, dispatch} = useStore()
     const { id } = useParams()
+    
     useEffect(() => {
         const breedSelected = state.breeds.find(breed => breed.id === id)
         if (breedSelected) {

@@ -7,7 +7,6 @@ export const fetchApi = createAsyncThunk('cat/fetchApi', async () => {
       if (!response.ok) {
         throw new Error('Error fetching data from the API');
       }
-  
       const data = await response.json();
       return data;
     } catch (error) {

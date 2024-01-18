@@ -28,7 +28,7 @@ const breedListWrapper = style(
         {minWidth:1366},
         {
             flexWrap:'nowrap',
-           gap:'53px'
+            gap:'53px'
         }
     )
 )

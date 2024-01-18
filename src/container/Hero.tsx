@@ -20,7 +20,6 @@ export const Hero = () => {
     };
     const navigate = useNavigate();
 
-    // Función para navegar a una ruta específica con un ID
     const goToDetail = (id:string) => {
       navigate(`/detail/${id}`);
     };
@@ -38,46 +37,46 @@ export const Hero = () => {
             },
         }}
     >
-    <div className={heroWrapper}>
-        <section className={heroWrapperTop}>
-            <img src="/public/cat.svg" alt="" />
-            <div className={style({width: '135.916px'}, media({minWidth:768}, {width:'271px'}), media({minWidth:1366}, {width:'371px'}))}>
-                <p className={heroText}>
-                    Get to know more about your cat breed
-                </p>
-            </div>
-            <label className={heroLabel} htmlFor="">
-            <Select
-                showSearch
-                className={heroInput}
-                onChange={onChange}
-                onSearch={onSearch}
-                placeholder="Search"
-                optionFilterProp="children"
-                filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                filterSort={(optionA, optionB) =>
-                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                }
-                options={state.breedsOptions}
-            />
-            </label>
-        </section> 
-        <section className={heroWrapperBottom}>
-            <span className={heroBottomSpan}>Most Searched Breeds</span>
-            <div className={heroBottomLine}></div>
-            <div className={style({width: '185.12px', marginTop:'17px'}, media({minWidth:1366},{width: '536.932px'}))}> 
-                <h3 className={heroBottomTitle}>
-                    66+ Breeds For you to discover
-                </h3>
-                <Link className={style({textDecoration:'none'})} to="/more">
-                    <span className={heroSpan}>
-                        SEE MORE
-                    </span>
-                </Link>
-            </div>
-            <BreedList />
-        </section>
-    </div>
+        <div className={heroWrapper}>
+            <section className={heroWrapperTop}>
+                <img src="/public/cat.svg" alt="" />
+                <div className={style({width: '135.916px'}, media({minWidth:768}, {width:'271px'}), media({minWidth:1366}, {width:'371px'}))}>
+                    <p className={heroText}>
+                        Get to know more about your cat breed
+                    </p>
+                </div>
+                <label className={heroLabel} htmlFor="">
+                <Select
+                    showSearch
+                    className={heroInput}
+                    onChange={onChange}
+                    onSearch={onSearch}
+                    placeholder="Search"
+                    optionFilterProp="children"
+                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                    filterSort={(optionA, optionB) =>
+                    (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                    }
+                    options={state.breedsOptions}
+                />
+                </label>
+            </section> 
+            <section className={heroWrapperBottom}>
+                <span className={heroBottomSpan}>Most Searched Breeds</span>
+                <div className={heroBottomLine}></div>
+                <div className={style({width: '185.12px', marginTop:'17px'}, media({minWidth:1366},{width: '536.932px'}))}> 
+                    <h3 className={heroBottomTitle}>
+                        66+ Breeds For you to discover
+                    </h3>
+                    <Link className={style({textDecoration:'none'})} to="/more">
+                        <span className={heroSpan}>
+                            SEE MORE
+                        </span>
+                    </Link>
+                </div>
+                <BreedList />
+            </section>
+        </div>
     </ConfigProvider>
   )
 }

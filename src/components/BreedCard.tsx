@@ -15,12 +15,9 @@ export const BreedCard:React.FC<breedCardProps> = ({title, imgUrl, id}) => {
     const {img} = useGetImage(imgUrl)
     const navigate = useNavigate();
 
-    // Función para navegar a una ruta específica con un ID
     const goToDetail = () => {
       navigate(`/detail/${id}`);
-    };
-  
-  
+    };  
   return (
     <div onClick={goToDetail}>
         <figure className={classes(breedCardFigure, img ? setImageStyle(img) : null)}></figure>
