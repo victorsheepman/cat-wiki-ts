@@ -1,11 +1,43 @@
-import { classes, media, style } from 'typestyle'
+import { media, style } from 'typestyle'
 import { colorBeige, colorBlack, colorBrown, colorWhite, montserrat } from '../theme'
 import { url } from 'csx'
 import { BreedList } from './BreedList'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ConfigProvider, Select } from 'antd'
+import { useStore } from '../store'
+
 
 export const Hero = () => {
+    const { state } = useStore()
+
+    const onChange = (value: string) => {
+        goToDetail(value)
+    };
+    
+    const onSearch = (value: string) => {
+        console.log('search:', value);
+        
+    };
+    const navigate = useNavigate();
+
+    // Función para navegar a una ruta específica con un ID
+    const goToDetail = (id:string) => {
+      navigate(`/detail/${id}`);
+    };
+  
+    
   return (
+    <ConfigProvider
+        theme={{
+            components: {
+                Select: {
+                   borderRadius: 59,
+                   colorBorder:'unset',
+                   colorTextPlaceholder:colorBlack.toString()
+                },
+            },
+        }}
+    >
     <div className={heroWrapper}>
         <section className={heroWrapperTop}>
             <img src="/public/cat.svg" alt="" />
@@ -15,7 +47,19 @@ export const Hero = () => {
                 </p>
             </div>
             <label className={heroLabel} htmlFor="">
-                <input type="text" className={classes(heroInput, heroInputText)} placeholder="Search" />
+            <Select
+                showSearch
+                className={heroInput}
+                onChange={onChange}
+                onSearch={onSearch}
+                placeholder="Search"
+                optionFilterProp="children"
+                filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                filterSort={(optionA, optionB) =>
+                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                }
+                options={state.breedsOptions}
+            />
             </label>
         </section> 
         <section className={heroWrapperBottom}>
@@ -34,6 +78,7 @@ export const Hero = () => {
             <BreedList />
         </section>
     </div>
+    </ConfigProvider>
   )
 }
 
@@ -124,20 +169,13 @@ const heroInput = style(
         }
     )
 )
-const heroInputText = style({
-    color: colorBlack.toString(),
-    fontFamily: montserrat,
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: 500,
-    lineHeight: 'normal',
-})
 
 const heroLabel = style({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    marginTop:"10px"
 })
 
 

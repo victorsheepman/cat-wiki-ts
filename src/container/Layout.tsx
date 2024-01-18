@@ -1,14 +1,17 @@
 import { ReactNode } from 'react'
 import { classes, media, style } from 'typestyle'
 import { colorBlack, colorWhite, montserrat } from '../theme'
+import { Link } from 'react-router-dom'
 
 export const Layout = ({children}:{children:ReactNode}) => {
   return (
     <div>
         <header className={headerWrapper}>
-            <figure className={logoWrapper}>
-                <img src="/public/CatwikiLogo.svg" alt=""/>
-            </figure>
+            <Link to="/" >
+                <figure className={logoWrapper}>
+                    <img src="/public/CatwikiLogo.svg" alt=""/>
+                </figure>
+            </Link>
         </header>
         <main className={mainWrapper}>
         {children}

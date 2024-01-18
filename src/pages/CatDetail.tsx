@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Breed } from '../schemas';
-import { useStore } from '../store';
+import { getBreedById, useStore } from '../store';
 import { classes, media, style } from 'typestyle';
 import { colorBlack, colorBrown, theme } from '../theme';
 import { CatProperty } from '../components';
@@ -13,14 +13,17 @@ export const CatDetail = () => {
     const [breed, setBreed] = useState<Breed>()
     const [images, setImages] = useState<string[] | undefined>([])
     const {img} = useGetImage(breed?.reference_image_id)
-    const {state} = useStore()
+    const {state, dispatch} = useStore()
     const { id } = useParams()
     useEffect(() => {
         const breedSelected = state.breeds.find(breed => breed.id === id)
         if (breedSelected) {
             setBreed(breedSelected)
+        }else{
+            dispatch(getBreedById(id??''))
+            setBreed(state.breedDetail)
         }
-    }, [id, state.breeds])
+    }, [id, state.breeds, state.breedDetail])
     
     useEffect(() => {
 
