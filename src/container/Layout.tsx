@@ -9,7 +9,7 @@ export const Layout = ({children}:{children:ReactNode}) => {
         <header className={headerWrapper}>
             <Link to="/" >
                 <figure className={logoWrapper}>
-                    <img src="/public/CatwikiLogo.svg" alt=""/>
+                    <img src="CatwikiLogo.svg" alt=""/>
                 </figure>
             </Link>
         </header>
