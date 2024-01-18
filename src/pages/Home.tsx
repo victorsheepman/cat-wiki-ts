@@ -23,15 +23,15 @@ export const Home = () => {
             <div className={homeGallery}>
                 <section className={sectionLeft}>
                     <figure className={classes(imageTop, imageBorder)}>
-                        <img className={imageStyle} src="/public/image 2.png" alt="" />
+                        <img className={imageStyle} src="image 2.png" alt="" />
                     </figure>
                     <figure className={classes(imageBottom, imageBorder)}>
-                        <img className={imageStyle} src="/public/image 1.png" alt="" />
+                        <img className={imageStyle} src="image 1.png" alt="" />
                     </figure>
                 </section>
                 <section className={sectionRight}>
                     <figure className={classes(imageLeft, imageBorder)}>
-                        <img className={imageStyle} src="/public/image 3.png" alt="" />
+                        <img className={imageStyle} src="image 3.png" alt="" />
                     </figure>
                 </section>
             </div>
