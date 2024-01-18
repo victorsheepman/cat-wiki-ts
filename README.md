@@ -8,6 +8,7 @@ CatWiki es una aplicación web que permite a los usuarios explorar y aprender so
 2. [Componentes de React](#componentes-de-react)
 3. [Llamadas a la API en React y Redux](#llamadas-a-la-api-en-react-y-redux)
 4. [Enrutamiento](#enrutamiento)
+5. [Funciones](#funciones)
 6. [Cómo Ejecutar la Aplicación](#cómo-ejecutar-la-aplicación)
 
 ## 1. Estructura del Proyecto
