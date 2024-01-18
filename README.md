@@ -5,10 +5,9 @@ CatWiki es una aplicación web que permite a los usuarios explorar y aprender so
 ## Índice
 
 1. [Estructura del Proyecto](#estructura-del-proyecto)
-2. [API del Lado del Servidor](#api-del-lado-del-servidor)
-3. [Componentes de React](#componentes-de-react)
-4. [Llamadas a la API en React y Redux](#llamadas-a-la-api-en-react-y-redux)
-5. [Enrutamiento](#enrutamiento)
+2. [Componentes de React](#componentes-de-react)
+3. [Llamadas a la API en React y Redux](#llamadas-a-la-api-en-react-y-redux)
+4. [Enrutamiento](#enrutamiento)
 6. [Cómo Ejecutar la Aplicación](#cómo-ejecutar-la-aplicación)
 
 ## 1. Estructura del Proyecto
@@ -18,22 +17,69 @@ CatWiki es una aplicación web que permite a los usuarios explorar y aprender so
 - `src/App.jsx`: Componente principal de la aplicación.
 - `src/CatWiki.jsx`: Componente donde se encuentran las rutas.
 - `src/store`: Almacenamiento Redux, con slices para gestionar el estado de la aplicación, thunks con las llamadas a la API y los hooks que se usan del reducer.
-- `catwiki-server`: Servidor Node.js.
-  - `server.js`: Lógica del lado del servidor y rutas de la API.
 
-## 2. API del Lado del Servidor
 
-El servidor está construido con Node.js y Express. Proporciona puntos finales de API para obtener razas de gatos y otra información relevante.
+## 2. Componentes de React
 
-### Puntos Finales:
+La aplicación React está dividida en varios componentes:
 
-1. **GET `/api/breeds`**
-   - Obtiene una lista de razas de gatos.
+- `BreedArticle`: Muestra un artículo resumido de las razas más buscadas.
+- `CatDetail`: Muestra una vista detallada de la raza del gato.
+- `MoreBreeds`: Muestra la página con búsquedas populares, razas principales, etc.
+- `BreedList`: Muestra una lista de breedCard.
 
-   Ejemplo de Respuesta:
-   ```json
-   [
-     { "id": "abys", "name": "Abisinio", ... },
-     { "id": "beng", "name": "Bengala", ... },
-     // ...
-   ]
+## 3. Llamadas a la API en React y Redux
+Las llamadas a la API ahora se manejan mediante createAsyncThunk de Redux Toolkit en lugar de la función fetch.
+
+Ejemplo de llamada a la API en un componente React utilizando Redux:
+
+
+```jsx
+// Dentro de un componente React
+import { useDispatch } from 'react-redux';
+import { fetchApi, getBreedsFromAPI, getBreedById } from '../redux/catSlice';
+
+const YourComponent = () => {
+  const dispatch = useDispatch();
+
+  // Llamada a la API para obtener una lista limitada de razas de gatos
+  dispatch(fetchApi());
+
+  // Llamada a la API para obtener la lista completa de razas de gatos (formato para opciones de un dropdown)
+  dispatch(getBreedsFromAPI());
+
+  // Llamada a la API para obtener detalles de una raza de gato específica
+  dispatch(getBreedById('specificBreedId'));
+
+  // Resto del código del componente
+};
+```
+
+## 4. Enrutamiento
+
+Se utiliza React Router para la navegación entre las diferentes secciones de la aplicación. La aplicación incluye rutas para la página de inicio, detalles de la raza y otras funciones opcionales.
+
+```jsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/detail/:id" element={<CatDetail />} />
+        <Route path="/more" element={<MoreBreeds />} />
+      </Routes>
+    </Router>
+  );
+}
+```
+
+## 6. Cómo Ejecutar la Aplicación
+Iniciar el Servidor:
+
+```
+cd Cat-wiki-ts
+npm install
+npm run dev
+```
