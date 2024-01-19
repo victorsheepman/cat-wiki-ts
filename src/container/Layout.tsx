@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export const Layout = ({children}:{children:ReactNode}) => {
   return (
-    <div>
+    <div className={style(media({minWidth:1500},{display:'flex', alignItems:'center',flexDirection:'column'}))}>
         <header className={headerWrapper}>
             <Link to="/" >
                 <figure className={logoWrapper}>
@@ -44,6 +44,13 @@ const headerWrapper = style(
         {
             padding:"25px 96px"
         }
+    ),
+    media(
+        {minWidth:1500},
+        {
+            width:'1248px',
+            padding:'25px 0px'
+        }
     )
 )
 
@@ -74,7 +81,13 @@ const mainWrapper = style(
     media(
         {minWidth:1366},
         {
-            padding:'30px 96px 0px 96px'
+            padding:'30px 96px 0px 96px',
+        }
+    ),
+    media(
+        {minWidth:1500},{
+            display:'flex',
+            justifyContent:'center'
         }
     )
 )

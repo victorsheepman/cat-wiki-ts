@@ -1,65 +1,24 @@
 import { media, style } from 'typestyle'
-import { colorBeige, colorBlack, colorBrown, colorWhite, montserrat } from '../theme'
+import { colorBeige, colorBrown, colorWhite, montserrat } from '../theme'
 import { url } from 'csx'
 import { BreedList } from './BreedList'
-import { Link, useNavigate } from 'react-router-dom'
-import { ConfigProvider, Select } from 'antd'
-import { useStore } from '../store'
+import { Link } from 'react-router-dom'
+import { BreedSearch } from '../components'
 
 
 export const Hero = () => {
-    const { state } = useStore()
-
-    const onChange = (value: string) => {
-        goToDetail(value)
-    };
-    
-    const onSearch = (value: string) => {
-        console.log('search:', value);
-        
-    };
-    const navigate = useNavigate();
-
-    const goToDetail = (id:string) => {
-      navigate(`/detail/${id}`);
-    };
-  
-    
+ 
   return (
-    <ConfigProvider
-        theme={{
-            components: {
-                Select: {
-                   borderRadius: 59,
-                   colorBorder:'unset',
-                   colorTextPlaceholder:colorBlack.toString()
-                },
-            },
-        }}
-    >
+   
         <div className={heroWrapper}>
             <section className={heroWrapperTop}>
-                <img src="/public/cat.svg" alt="" />
-                <div className={style({width: '135.916px'}, media({minWidth:768}, {width:'271px'}), media({minWidth:1366}, {width:'371px'}))}>
+                <h4 className={heroTitle}>CatWiki</h4>
+                <div className={heroTextContainer}>
                     <p className={heroText}>
                         Get to know more about your cat breed
                     </p>
                 </div>
-                <label className={heroLabel} htmlFor="">
-                <Select
-                    showSearch
-                    className={heroInput}
-                    onChange={onChange}
-                    onSearch={onSearch}
-                    placeholder="Search"
-                    optionFilterProp="children"
-                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
-                    filterSort={(optionA, optionB) =>
-                    (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                    }
-                    options={state.breedsOptions}
-                />
-                </label>
+                <BreedSearch />
             </section> 
             <section className={heroWrapperBottom}>
                 <span className={heroBottomSpan}>Most Searched Breeds</span>
@@ -77,7 +36,6 @@ export const Hero = () => {
                 <BreedList />
             </section>
         </div>
-    </ConfigProvider>
   )
 }
 
@@ -86,6 +44,7 @@ const heroWrapper = style(
     {
         width: '100%',
         height: 'auto',
+        maxWidth:'1248px',
         flexShrink: 0,
         borderRadius:'42px',
         backgroundColor:colorBeige.toString(),
@@ -95,9 +54,10 @@ const heroWrapper = style(
 const heroWrapperTop = style(
     {
         width: '100%;',
-        height: '146.19px',
+        height: '146px',
         flexShrink: 0,
-        padding:'21px 29px',
+        padding:'5.60% 7.73%',     
+        backgroundColor:'red',
         backgroundImage:url('/public/HeroImagesm.png'),
         backgroundPosition: 'center',  
         backgroundSize: 'cover',  
@@ -108,7 +68,7 @@ const heroWrapperTop = style(
         {minWidth:768},
         {
             height:'338px',
-            padding:'115px 108px',
+         
             backgroundImage: url('/public/HeroImagemd.png')
         }
     ),
@@ -116,10 +76,39 @@ const heroWrapperTop = style(
         {minWidth:1366},
         {
             backgroundImage: url('HeroImagelg.png'),
-            height:'538px'
+            padding:'115px 108px',
+            height:'538px',
+           
         }
     )
 )
+
+const heroTitle = style(
+    {
+        color: colorWhite.toString(),
+        fontFamily: "Mystery Quest",
+        fontSize: '14px',
+        fontStyle: 'normal',
+        fontWeight: 400,
+        lineHeight: 'normal'
+    }
+)
+
+const heroTextContainer = style(
+    {
+        width: '135.916px',
+        marginTop:'7.34px'
+    }, 
+    media(
+        {minWidth:768}, 
+        {width:'271px'}
+    ), 
+    media(
+        {minWidth:1366}, 
+        {width:'371px'}
+    )
+)
+
 const heroText = style(
     {
         color: colorWhite.toString(),
@@ -142,40 +131,6 @@ const heroText = style(
         }
     )
 )
-const heroInput = style(
-    {
-        width: '91.621px',
-        height: '30.705px',
-        marginTop:'18px',
-        flexShrink: 0,
-        borderRadius: '59px',
-        background: colorWhite.toString(),
-        border:'unset',
-        padding:'7px 13px'
-    },
-    media(
-        {minWidth:768},
-        {
-            width: '294.616px',
-            height: '49.67px',
-        }
-    ),
-    media(
-        {minWidth:1366},
-        {
-            width: '394.616px',
-            height: '69.67px',
-        }
-    )
-)
-
-const heroLabel = style({
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
-    marginTop:"10px"
-})
 
 
 //HERO WRAPPER BOTTOM
