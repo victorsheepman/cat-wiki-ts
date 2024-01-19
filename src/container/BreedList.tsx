@@ -16,19 +16,23 @@ export const BreedList = () => {
 }
 const breedListWrapper = style(
     {
+        position:'absolute',
         width:'100%',
         height:'auto',
         display:'flex',
        // justifyContent:'center',
         gap:"13px",
         flexWrap:'wrap',
-        marginTop:"26px"
+        marginTop:"26px",
+        zIndex:1,
+       
     },
     media(
         {minWidth:1366},
         {
             flexWrap:'nowrap',
-            gap:'53px'
+            gap:'53px',
+            backgroundColor:'red'
         }
     )
 )

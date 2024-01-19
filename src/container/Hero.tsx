@@ -1,5 +1,5 @@
 import { media, style } from 'typestyle'
-import { colorBeige, colorBrown, colorWhite, montserrat } from '../theme'
+import { colorBeige, colorBrown, colorWhite, colorYellow, montserrat } from '../theme'
 import { url } from 'csx'
 import { BreedList } from './BreedList'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,11 @@ export const Hero = () => {
    
         <div className={heroWrapper}>
             <section className={heroWrapperTop}>
-                <h4 className={heroTitle}>CatWiki</h4>
+                <h4 className={heroTitle}>
+                    CatWiki
+                    {' '}
+                    <img className={style(media({maxWidth:500},{display:'none'}))} src="catLogo.svg" alt="" /> 
+                </h4>
                 <div className={heroTextContainer}>
                     <p className={heroText}>
                         Get to know more about your cat breed
@@ -23,17 +27,22 @@ export const Hero = () => {
             <section className={heroWrapperBottom}>
                 <span className={heroBottomSpan}>Most Searched Breeds</span>
                 <div className={heroBottomLine}></div>
-                <div className={style({width: '185.12px', marginTop:'17px'}, media({minWidth:1366},{width: '536.932px'}))}> 
-                    <h3 className={heroBottomTitle}>
-                        66+ Breeds For you to discover
-                    </h3>
-                    <Link className={style({textDecoration:'none'})} to="/more">
+                <div className={heroBottomTitleSection}> 
+                    <div className={heroTitleContainer}>
+                        <h3 className={heroBottomTitle}>
+                            66+ Breeds For you to discover
+                        </h3>
+                    </div>
+                    <Link className={style({textDecoration:'none'}, media({maxWidth:1366},{display:'none'}))} to="/more">
                         <span className={heroSpan}>
                             SEE MORE
+                            {' '}
+                            <img src="trending.svg" alt="" />
                         </span>
                     </Link>
                 </div>
                 <BreedList />
+                <div className={heroBottomSquare}></div>
             </section>
         </div>
   )
@@ -95,7 +104,8 @@ const heroTitle = style(
     media(
         {minWidth:768},
         {
-            fontSize:'4rem'
+            fontSize:'4rem',
+           
         }
     )
 )
@@ -107,11 +117,16 @@ const heroTextContainer = style(
     }, 
     media(
         {minWidth:768}, 
-        {width:'271px'}
+        {
+            width:'271px',
+            marginTop:'11.19px'
+        }
     ), 
     media(
         {minWidth:1366}, 
-        {width:'371px'}
+        {
+            width:'371px'
+        }
     )
 )
 
@@ -138,8 +153,9 @@ const heroText = style(
 
 const heroWrapperBottom = style(
     {
+        position:'relative',
         width:'100%',
-        height:'523px',
+        height:'524px',
         borderRadius:'0px 0px 42px 42px',
         backgroundColor:colorBeige.toString(),
         padding:'18px 29px'
@@ -148,7 +164,7 @@ const heroWrapperBottom = style(
         {minWidth:1366},
         {
             height:'634px',
-            padding:'92px 108px'
+            padding:'32px 108px'
         }
     )
 )
@@ -157,15 +173,15 @@ const heroBottomSpan = style(
     {
         color: colorBrown.toString(),
         fontFamily: montserrat,
-        fontSize: '12px',
+        fontSize: '0.75rem',
         fontStyle: 'normal',
         fontWeight: 500,
         lineHeight: 'normal',
     },
     media(
-        {minWidth:1366},
+        {minWidth:768},
         {
-            fontSize:'18px'
+            fontSize:'1.125rem'
         }
     )
 )
@@ -181,19 +197,47 @@ const heroBottomLine = style(
     }
 )
 
-const heroBottomTitle = style(
+const heroBottomTitleSection = style(
     {
-        color: colorBrown.toString(),
-        fontFamily: montserrat,
-        fontSize: '18px',
-        fontStyle: 'normal',
-        fontWeight: 700,
-        lineHeight: 'normal',
+        marginTop:'17.27px'
     },
     media(
         {minWidth:1366},
         {
-            fontSize:'48px'
+            alignItems:'baseline',
+            display:'flex',
+            justifyContent:'space-between',
+            marginTop:'36px'
+        }
+    )
+)
+
+const heroTitleContainer = style(
+    {
+        width: '185.12px', 
+    }, 
+    media(
+        {minWidth:768},
+        {
+            width: '536px',
+        }
+    )
+)
+
+const heroBottomTitle = style(
+    {
+        color: colorBrown.toString(),
+        fontFamily: montserrat,
+        fontSize: '1.125rem',
+        fontStyle: 'normal',
+        fontWeight: 700,
+        lineHeight: 'normal',
+        
+    },
+    media(
+        {minWidth:768},
+        {
+            fontSize:'3rem',
         }
     )
 )
@@ -202,9 +246,42 @@ const heroSpan = style({
     color: 'rgba(41, 21, 7, 0.60)',
     textAlign: 'right',
     fontFamily: montserrat,
-    fontSize: '18px',
+    fontSize: '1.125rem',
     fontStyle: 'normal',
     fontWeight: 700,
     lineHeight: 'normal',
-    textDecoration:'none'
+    textDecoration:'none',
+    display:'flex',
+    alignItems:'center'
 })
+
+const heroBottomSquare = style(
+    {
+        position:'absolute',
+        top:'40%',
+        left:'7%',
+        width: '46.955px',
+        height: '174.615px',
+        flexShrink: 0,
+        borderRadius: '14px',
+        backgroundColor: colorYellow.toString(),
+        zIndex:0
+    },
+    media(
+        {
+            maxWidth:768
+        },
+        {
+            height:'105px',
+            width:'32px',
+            left:'3%',
+            top:'45%'
+        }
+    ),
+    media(
+        {maxWidth:600},
+        {
+            display:'none'
+        }
+    )
+)
