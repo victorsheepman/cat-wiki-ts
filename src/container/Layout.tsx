@@ -15,6 +15,8 @@ export const Layout = ({children}:{children:ReactNode}) => {
         </header>
         <main className={mainWrapper}>
         {children}
+     
+        </main>
         <footer className={layoutFooter}>
              <p className={symbolStyle}>©</p><p className={layoutFooterParagraph}>
                 created by <strong 
@@ -28,8 +30,6 @@ export const Layout = ({children}:{children:ReactNode}) => {
                                Victor Marquez
                             </strong>  - devChallenge.io 2024</p>
         </footer>
-        </main>
-        
     </div>
   )
 }
