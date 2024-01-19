@@ -34,7 +34,7 @@ const breedCardFigure = style(
         borderRadius: '12px',
     },
     media(
-        {minWidth:1366},
+        {minWidth:1024},
         {
             width: '220px',
             height: '220px',

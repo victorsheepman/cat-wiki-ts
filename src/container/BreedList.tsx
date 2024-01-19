@@ -19,7 +19,7 @@ const breedListWrapper = style(
         width:'100%',
         height:'auto',
         display:'flex',
-        justifyContent:'center',
+       // justifyContent:'center',
         gap:"13px",
         flexWrap:'wrap',
         marginTop:"26px"

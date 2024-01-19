@@ -7,7 +7,7 @@ export const Home = () => {
     <div>
        <Hero />
        <section className={homeBottom}>
-            <div>
+            <div className={style(media({maxWidth:500}, {width:'100%'}))}>
                 <div className={homeLine}></div>
                 <div className={titleWrapper}>
                     <h3 className={homeSubTitle}>
@@ -111,6 +111,15 @@ const homeGallery = style(
         gap:'16px'
     },
     media(
+        {
+            maxWidth:500
+        },
+        {
+            width:'100%',
+           backgroundColor:'red'
+        }
+    ),
+    media(
         {minWidth:1366},
         {
             width: '539px',
@@ -194,12 +203,20 @@ const homeBottom = style(
         height:'auto',
         display:'flex',
         flexDirection:'column',
-        gap:'63px'
+        gap:'63px',
     },
+    media(
+        {maxWidth:600},
+        {
+            alignItems:'center',
+        }
+    ),
     media(
         {minWidth:768},
         {
-            flexDirection:'row'
+            flexDirection:'row', 
+            gap:'38px',
+            justifyContent:'center',
         }
     )
 )

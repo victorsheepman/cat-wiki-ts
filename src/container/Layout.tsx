@@ -60,9 +60,21 @@ const mainWrapper = style(
         padding:'23px 18px 0px 18px'
     }, 
     media(
+        {minWidth:768},
+        {
+            padding:'30px 58px 0px 58px'
+        }
+    ),
+    media(
+        {minWidth:1024},
+        {
+            padding:'30px 18px 0px 18px'
+        }
+    ),
+    media(
         {minWidth:1366},
         {
-            padding:'30px 151px 0px 151px'
+            padding:'30px 96px 0px 96px'
         }
     )
 )
