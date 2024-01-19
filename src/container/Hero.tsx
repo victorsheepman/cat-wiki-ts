@@ -204,7 +204,7 @@ const heroBottomTitleSection = style(
     media(
         {minWidth:1366},
         {
-            alignItems:'baseline',
+            alignItems:'flex-end',
             display:'flex',
             justifyContent:'space-between',
             marginTop:'36px'
