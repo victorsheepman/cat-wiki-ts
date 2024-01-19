@@ -1,6 +1,6 @@
 import { classes, media, style } from "typestyle"
 import { Hero } from "../container"
-import { colorBrown, theme } from "../theme"
+import { colorBrown, montserrat, theme } from "../theme"
 
 export const Home = () => {
   return (
@@ -19,6 +19,10 @@ export const Home = () => {
                         Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress and anxiety leves
                     </p>
                 </div>
+                <span className={homeSpan}>
+                    READ MORE {' '}
+                    <img src="trending.svg" alt="" />
+                </span>
             </div>
             <div className={homeGallery}>
                 <section className={sectionLeft}>
@@ -43,6 +47,32 @@ export const Home = () => {
   )
 }
 
+const homeBottom = style(
+    {
+        width:'100%',
+        height:'auto',
+        display:'flex',
+        flexDirection:'column',
+        gap:'63px',
+        marginTop:'63px',
+        alignItems:'center',
+    },
+    media(
+        {minWidth:768},
+        {
+            gap:'31px'
+        }
+    ),
+    media(
+        {minWidth:1366},
+        {
+            flexDirection:'row', 
+            gap:'38px',
+            justifyContent:'center',
+        }
+    )
+)
+
 const homeLine = style(
     {
         width: '50.843px',
@@ -50,7 +80,6 @@ const homeLine = style(
         borderRadius: '77px',
         background: colorBrown.toString(),
         flexShrink: 0,
-        marginTop:'63px'
     }
 )
 
@@ -72,7 +101,7 @@ const homeSubTitle = style(
     {
         color: colorBrown.toString(),
         fontFamily: 'Montserrat',
-        fontSize: '40px',
+        fontSize: '2.5rem',
         fontStyle: 'normal',
         fontWeight: 700,
         lineHeight: 'normal',
@@ -81,7 +110,7 @@ const homeSubTitle = style(
     media(
         {minWidth:1366},
         {
-            fontSize:'48px'
+            fontSize:'3rem'
         }
     )
 )
@@ -96,8 +125,28 @@ const paragrafWrapper = style(
     media(
         {minWidth:1366},
         {
-            marginTop:'41px'
+            marginTop:'43px',
+            width: '447.743px'
         }
+    )
+)
+
+const homeSpan = style(
+    {
+        color: 'rgba(41, 21, 7, 0.60)',
+        fontFamily:montserrat,
+        fontSize:'0.75rem',
+        fontStyle: 'normal',
+        fontWeight: 700,
+        lineHeight: 'normal',
+        display:'flex',
+        gap:'5px',
+        alignItems:'center',
+        marginTop:'26px'
+    },
+    media(
+        {minWidth:1366},
+        { marginTop:'25px' }
     )
 )
 
@@ -116,7 +165,6 @@ const homeGallery = style(
         },
         {
             width:'100%',
-           backgroundColor:'red'
         }
     ),
     media(
@@ -197,26 +245,3 @@ const imageStyle = style({
     objectFit:'cover'
 })
 
-const homeBottom = style(
-    {
-        width:'100%',
-        height:'auto',
-        display:'flex',
-        flexDirection:'column',
-        gap:'63px',
-    },
-    media(
-        {maxWidth:600},
-        {
-            alignItems:'center',
-        }
-    ),
-    media(
-        {minWidth:768},
-        {
-            flexDirection:'row', 
-            gap:'38px',
-            justifyContent:'center',
-        }
-    )
-)

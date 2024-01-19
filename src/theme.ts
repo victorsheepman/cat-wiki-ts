@@ -17,7 +17,7 @@ export const theme = stylesheet(
         paragraph:{
             color:colorBrown.toString(),
             fontFamily: montserrat,
-            fontSize: '18px',
+            fontSize: '1.125rem',
             fontStyle: 'normal',
             lineHeight: 'normal',
         }

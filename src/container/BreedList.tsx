@@ -32,7 +32,7 @@ const breedListWrapper = style(
         {
             flexWrap:'nowrap',
             gap:'53px',
-            backgroundColor:'red'
+           
         }
     )
 )
