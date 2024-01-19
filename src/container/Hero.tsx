@@ -91,7 +91,13 @@ const heroTitle = style(
         fontStyle: 'normal',
         fontWeight: 400,
         lineHeight: 'normal'
-    }
+    },
+    media(
+        {minWidth:768},
+        {
+            fontSize:'4rem'
+        }
+    )
 )
 
 const heroTextContainer = style(
@@ -118,16 +124,11 @@ const heroText = style(
         fontWeight: 500,
         lineHeight: 'normal',
     },
+
     media(
         {minWidth:768},
         {
-            fontSize:'14px'
-        }
-    ),
-    media(
-        {minWidth:1366},
-        {
-            fontSize:'24px'
+            fontSize:'1.5rem'
         }
     )
 )

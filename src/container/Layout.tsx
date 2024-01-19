@@ -37,7 +37,7 @@ const headerWrapper = style(
     {
         width:'100%',
         height:'80px',
-        padding:"24px 18px",
+        padding:"6.40% 6.80%",
     }, 
     media(
         {minWidth:1366},
