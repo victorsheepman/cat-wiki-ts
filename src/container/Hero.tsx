@@ -158,7 +158,8 @@ const heroWrapperBottom = style(
         height:'524px',
         borderRadius:'0px 0px 42px 42px',
         backgroundColor:colorBeige.toString(),
-        padding:'18px 29px'
+        padding:'18px 29px',
+        zIndex:0
     },
     media(
         {minWidth:1366},
@@ -265,7 +266,7 @@ const heroBottomSquare = style(
         flexShrink: 0,
         borderRadius: '14px',
         backgroundColor: colorYellow.toString(),
-        zIndex:0
+        zIndex:-1
     },
     media(
         {
