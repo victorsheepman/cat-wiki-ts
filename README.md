@@ -15,6 +15,7 @@ CatWiki es una aplicación web que permite a los usuarios explorar y aprender so
 
 - `src/api`: Servicios utilizados para hacer llamadas adicionales a la API.
 - `src/components`: Contiene componentes React.
+- `src/container`: Contiene el layout principal de la app y otros contenedores como BreedList y Hero.
 - `src/App.jsx`: Componente principal de la aplicación.
 - `src/CatWiki.jsx`: Componente donde se encuentran las rutas.
 - `src/store`: Almacenamiento Redux, con slices para gestionar el estado de la aplicación, thunks con las llamadas a la API y los hooks que se usan del reducer.
@@ -22,7 +23,7 @@ CatWiki es una aplicación web que permite a los usuarios explorar y aprender so
 
 ## 2. Componentes de React
 
-La aplicación React está dividida en varios componentes:
+La aplicación React está dividida en varios componentes, aqui los mas importantes:
 
 - `BreedArticle`: Muestra un artículo resumido de las razas más buscadas.
 - `CatDetail`: Muestra una vista detallada de la raza del gato.
