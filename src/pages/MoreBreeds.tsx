@@ -31,16 +31,18 @@ export const MoreBreeds = () => {
 const moreTitle = style({
     color: colorBrown.toString(),
     fontFamily: montserrat,
-    fontSize: '36px',
+    fontSize: '2.25rem',
     fontStyle: 'normal',
     fontWeight: 700,
     lineHeight: 'normal',
 })
 
-const moreSection = style({
-    display:'flex',
-    flexDirection:'column',
-    gap:'55px',
-    marginTop:'55px',
-    marginBottom:'106px'
-})
+const moreSection = style(
+    {
+        display:'flex',
+        flexDirection:'column',
+        gap:'55px',
+        marginTop:'55px',
+        marginBottom:'106px'
+    },
+)

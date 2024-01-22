@@ -45,7 +45,8 @@ const breedArticleWrapper = style(
         width:'100%',
         height:'auto',
         display:'flex',
-        gap:'46px'
+        gap:'46px',
+        maxWidth:'1200px'
     }
 )
 
@@ -60,14 +61,14 @@ const breedArticleTitle = style(
     {
         color: colorBrown.toString(),
         fontFamily: montserrat,
-        fontSize: '26px',
+        fontSize: '1.625rem',
         fontStyle: 'normal',
         fontWeight: 600,
         lineHeight: 'normal',
     },
     media(
         {minWidth:600},{
-            fontSize: '36px',
+            fontSize: '2.25rem',
         }
     )
 )
@@ -75,7 +76,7 @@ const breedArticleTitle = style(
 const breedArticleText = style({
     color: colorBrown.toString(),
     fontFamily: montserrat,
-    fontSize: '18px',
+    fontSize: '1.125rem',
     fontStyle: 'normal',
     fontWeight: 500,
     lineHeight: 'normal',
