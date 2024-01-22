@@ -54,7 +54,7 @@ const propertyWrapper = style(
         flexShrink: 0,
         display:'flex',
         gap:'30px',
-        margin:'32px 0px',
+        marginTop:'32px',
     },
     media(
         {minWidth:1366},

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Breed } from '../schemas';
 import { getBreedById, useStore } from '../store';
 import { classes, media, style } from 'typestyle';
-import { colorBlack, colorBrown, theme } from '../theme';
+import { colorBlack, colorBrown, montserrat, theme } from '../theme';
 import { CatProperty } from '../components';
 import { useGetImage } from '../hooks';
 import { callImagesByBreed } from '../api';
@@ -49,21 +49,21 @@ export const CatDetail = () => {
             <div className={detailParagrahWrapper}>
                 <p className={theme.paragraph}>{breed?.description}</p>
             </div>
-            <p className={classes(theme.paragraph,style({fontSize:'16px', margin:'32px 0px'}))}>
+            <p className={classes(theme.paragraph,detailSubText)}>
                 <strong className={detailSubTitle}>
                     Temperament:
                 </strong>
                 {' '}
                 {breed?.temperament}
             </p>
-            <p className={classes(theme.paragraph,style({fontSize:'16px', margin:'32px 0px'}))}>
+            <p className={classes(theme.paragraph,detailSubText)}>
                 <strong className={detailSubTitle}>
                     Origin:
                 </strong>
                 {' '}
                 {breed?.origin}
             </p>
-            <p className={classes(theme.paragraph,style({fontSize:'16px', margin:'32px 0px'}))}>
+            <p className={classes(theme.paragraph,detailSubText)}>
                 <strong className={detailSubTitle}>
                 Life Span:
                 </strong>
@@ -105,13 +105,15 @@ const detailWrapper = style(
         height:'auto',
         display:'flex',
         flexDirection:'column',
-        gap:'30px'
+        gap:'30px',       
+        maxWidth:'1200px'
     },
     media(
         {minWidth:1366},
         {
             flexDirection:'row',
-            gap:'115px'
+            gap:'115px',
+            padding:'0px 100px'
         }
     )
 )
@@ -122,7 +124,6 @@ const detailSection = style(
         height:'auto',
         display:'flex',
         flexDirection:'column',
-        justifyContent:'center',
     },
     media(
         {minWidth:1366},
@@ -134,11 +135,10 @@ const detailSection = style(
 
 const detailFigure = style(
     {
-        width: '134px',
-        height: '134px',
+        width: '234px',
+        height: '234px',
         flexShrink: 0,
         borderRadius: '12px',
-        backgroundColor:'red'
     },
     media(
         {minWidth:600},
@@ -151,8 +151,8 @@ const detailFigure = style(
 
 const detailTitle = style({
     color: colorBrown.toString(),
-    fontFamily: 'Montserrat',
-    fontSize: '36px',
+    fontFamily: montserrat,
+    fontSize: '2.25rem',
     fontStyle: 'normal',
     fontWeight: 600,
     lineHeight: 'normal'
@@ -162,17 +162,36 @@ const detailParagrahWrapper = style(
     {
         width: '100%',
         marginTop:'25px'
-    }
+    },
+    media(
+        {minWidth:700},
+        {
+            width:'601px',
+        }
+    )
 )
 
 const detailSubTitle = style(
     {
         color: colorBlack.toString(),
-        fontFamily: 'Montserrat',
-        fontSize: '16px',
+        fontFamily: montserrat,
+        fontSize: '1rem',
         fontStyle: 'normal',
         fontWeight: 700,
         lineHeight: 'normal'
+    },
+    media(
+        {minWidth:700},
+        {
+            fontSize:'1.125rem'
+        }
+    )
+)
+
+const detailSubText = style(
+    {
+        fontSize:'1rem', 
+        marginTop:'32px'
     }
 )
 

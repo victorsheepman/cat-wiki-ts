@@ -58,7 +58,8 @@ const headerWrapper = style(
 const logoWrapper = style({
     width: '127.72px',
     height: '43.69px',
-    flexShrink: 0
+    flexShrink: 0,
+    
 })
 
 const mainWrapper = style(
@@ -87,8 +88,8 @@ const mainWrapper = style(
     ),
     media(
         {minWidth:1500},{
-            display:'flex',
-            justifyContent:'center'
+            //display:'flex',
+            //justifyContent:'center'
         }
     )
 )
