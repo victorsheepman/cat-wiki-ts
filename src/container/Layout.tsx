@@ -18,17 +18,27 @@ export const Layout = ({children}:{children:ReactNode}) => {
      
         </main>
         <footer className={layoutFooter}>
-             <p className={symbolStyle}>©</p><p className={layoutFooterParagraph}>
-                created by <strong 
-                                className={
-                                    classes(
-                                        layoutFooterParagraph, 
-                                        style({fontWeight:700, textDecorationLine:'underline'})
-                                    )
-                                }
-                            >
-                               Victor Marquez
-                            </strong>  - devChallenge.io 2024</p>
+            <div>
+                  <p className={logoText}>
+                    CatWiki {''}
+                    <img style={{width:'24px', height:'24px'}} src="catLogo.svg" alt="" /> 
+                  </p>
+                  
+            </div>
+            <div>
+                <p className={layoutFooterParagraph}>
+                    created by <strong 
+                                    className={
+                                        classes(
+                                            layoutFooterParagraph, 
+                                            style({fontWeight:700, textDecorationLine:'underline'})
+                                        )
+                                    }
+                                >
+                                Victor Marquez
+                                </strong>  - devChallenge.io 2024
+                </p>
+            </div>
         </footer>
     </div>
   )
@@ -93,33 +103,63 @@ const mainWrapper = style(
         }
     )
 )
-const layoutFooter = style({
-    width: '100%',
-    height: '122.089px',
-    flexShrink: 0,
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: colorBlack.toString(),
-    borderRadius:'40px 40px 0px 0px',
-    marginTop:'85px',
+const layoutFooter = style(
+    {
+        width: '100%',
+        height: '122.089px',
+        flexShrink: 0,
+        display:'flex',
+        flexDirection:'column',
+        gap:'14px',
+        justifyContent:'center',
+        backgroundColor: colorBlack.toString(),
+        borderRadius:'40px 40px 0px 0px',
+        marginTop:'85px',
+        padding:'0px 28px'
     
-})
+    },
+    media(
+        {minWidth:768},
+        {
+            flexDirection:'row',
+            justifyContent:'space-around',
+            alignItems:'center'
+        }
+    )
+)
 
-const layoutFooterParagraph = style({
-    color: colorWhite.toString(),
-    fontFamily: 'Montserrat',
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: 400,
-    lineHeight: 'normal'
-})
+const layoutFooterParagraph = style(
+    {
+        color: colorWhite.toString(),
+        fontFamily: montserrat,
+        fontSize: '0.75rem',
+        fontStyle: 'normal',
+        fontWeight: 400,
+        lineHeight: 'normal'
+    },
+    media(
+        {minWidth:768},
+        {
+            fontSize:"1.125rem"
+        }
+    )
+)
 
-const symbolStyle = style({
-    color: colorWhite.toString(),
-    fontFamily: montserrat,
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: 400,
-    lineHeight: 'normal'
-})
+
+
+const logoText = style(
+    {
+        color: colorWhite.toString(),
+        fontFamily: "Mystery Quest",
+        fontSize: '0.875rem',
+        fontStyle: 'normal',
+        fontWeight: 400,
+        lineHeight: 'normal'
+    },
+    media(
+        {minWidth:768},
+        {
+            fontSize:'1.5rem'
+        }
+    )
+)
