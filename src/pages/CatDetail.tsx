@@ -35,7 +35,7 @@ export const CatDetail = () => {
     }, [breed?.id])
     
   return (
-    <>
+    <div>
     <div className={detailWrapper}>
         <section className={detailSection}>
             <figure className={detailFigure}>
@@ -81,7 +81,7 @@ export const CatDetail = () => {
         </section>
     </div>
     <section className={detailsGallery}>
-            <h3 className={detailSubTitle}>
+            <h3 className={detailGalleryTitle}>
                 Other photos
             </h3>
             <div className={detailsGrid}>
@@ -95,7 +95,7 @@ export const CatDetail = () => {
                 }
             </div>
         </section>
-    </>
+    </div>
   )
 }
 
@@ -195,12 +195,23 @@ const detailSubText = style(
     }
 )
 
+
 const detailsGallery = style({
     width:'100%',
     height:"auto",
     marginTop:'80px',
-    marginBottom:'176px'
+    marginBottom:'176px',
+    maxWidth:'1300px',
 })
+
+const detailGalleryTitle = style({
+    color: colorBrown.toString(),
+    fontFamily: montserrat,
+    fontSize: '2.25rem',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    lineHeight: 'normal',
+});
 
 const detailsGrid = style(
     {
@@ -208,16 +219,15 @@ const detailsGrid = style(
         marginTop:'40px',
         display:'flex',
         flexDirection:'column',
-        alignItems:'center',
-        gap:'30px'
+        gap:'30px',
+        alignItems:'center'
+        
     },
     media(
         {minWidth:600},
         {
             flexWrap:'wrap',
             flexDirection:'row',
-            justifyContent:'center',
-            gap:'46px'
         }
     )
 )

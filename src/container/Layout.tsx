@@ -88,8 +88,8 @@ const mainWrapper = style(
     ),
     media(
         {minWidth:1500},{
-            //display:'flex',
-            //justifyContent:'center'
+            display:'flex',
+            justifyContent:'center'
         }
     )
 )
