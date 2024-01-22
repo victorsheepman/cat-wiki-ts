@@ -66,8 +66,7 @@ const heroWrapperTop = style(
         height: '146px',
         flexShrink: 0,
         padding:'5.60% 7.73%',     
-        backgroundColor:'red',
-        backgroundImage:url('/public/HeroImagesm.png'),
+        backgroundImage:url('https://sqrevjfizglmjxxfuvxy.supabase.co/storage/v1/object/sign/CatWiki/HeroImagesm.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXRXaWtpL0hlcm9JbWFnZXNtLnBuZyIsImlhdCI6MTcwNTk0OTY2NiwiZXhwIjoxNzM3NDg1NjY2fQ.SYZrWMX8yswr8OnBw_TM_nCDRn9ESvIyf1twS7S4OJI&t=2024-01-22T18%3A54%3A06.779Z'),
         backgroundPosition: 'center',  
         backgroundSize: 'cover',  
         borderRadius: '42px 42px 0px 0px',
@@ -78,13 +77,13 @@ const heroWrapperTop = style(
         {
             height:'338px',
          
-            backgroundImage: url('/public/HeroImagemd.png')
+            backgroundImage: url('https://sqrevjfizglmjxxfuvxy.supabase.co/storage/v1/object/sign/CatWiki/HeroImagemd.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXRXaWtpL0hlcm9JbWFnZW1kLnBuZyIsImlhdCI6MTcwNTk0OTYwMiwiZXhwIjoxNzM3NDg1NjAyfQ.uhZxVvbY8OeaskVzHrilfd7fyTtf4dyEjHDq91xooZE&t=2024-01-22T18%3A53%3A02.863Z')
         }
     ),
     media(
         {minWidth:1366},
         {
-            backgroundImage: url('HeroImagelg.png'),
+            backgroundImage: url('https://sqrevjfizglmjxxfuvxy.supabase.co/storage/v1/object/sign/CatWiki/HeroImagelg.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXRXaWtpL0hlcm9JbWFnZWxnLnBuZyIsImlhdCI6MTcwNTk0OTU3MywiZXhwIjoxNzM3NDg1NTczfQ.C2x8UwAzoddMpgeP3lYq0y3bxc_n2BWqpLhM22mmaQ0&t=2024-01-22T18%3A52%3A34.178Z'),
             padding:'115px 108px',
             height:'538px',
            
